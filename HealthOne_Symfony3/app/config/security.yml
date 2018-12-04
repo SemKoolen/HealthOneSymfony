@@ -1,0 +1,54 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        in_memory:
+            memory:
+                users:
+                    Admin:
+                        password: $2y$12$9dol4ko6s9AQPCoXw58.cuGYm3Akv7OPPcJbY96v9e6ADc6OyY5y2
+                        roles: 'ROLE_ADMIN'
+                    Verzekeringsmedewerker1:
+                        password: $2y$12$Vp.fblvF7fj6sDtsBORWHOAP5Ue2kvyEK4QK4axEKAw0Ok3kxuVjS
+                        roles: 'ROLE_VERZEKERINGSMEDEWERKER'
+                    Apotheker1:
+                        password: $2y$12$x1AYNdLp4Xf6WwVw4xoWx.yLx0/R0p6ZzdybW6Z5m1xc5mBco.ofa
+                        roles: 'ROLE_APOTHEKER'
+                    Arts1:
+                        password: $2y$12$6uivsvxt8CPnje9aigeKQefhfpvLCWIrXyuhXS0l2Od5kUyTCE5G.
+                        roles: 'ROLE_ARTS'
+
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm: bcrypt
+            cost: 12
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            # activate different ways to authenticate
+            form_login:
+                login_path: homepagelogin
+                check_path: homepagelogin
+
+
+            logout_on_user_change: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            #form_login: ~
+
+    access_control:
+    # require ROLE_ADMIN for /admin*
+    - { path: ^/admin, roles: ROLE_ADMIN }
+    - { path: ^/verzekering, roles: ROLE_VERZEKERINGSMEDEWERKER }
+    - { path: ^/apotheker, roles: ROLE_APOTHEKER }
+    - { path: ^/arts, roles: ROLE_ARTS }

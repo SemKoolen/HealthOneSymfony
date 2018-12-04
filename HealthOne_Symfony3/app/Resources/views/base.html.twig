@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('fonts/font-awesome.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('fonts/Roboto.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/Contact-form-simple.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/Features-Boxed.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/swiper.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/Simple-Slider.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/sticky-dark-top-nav-with-dropdown.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+            <link rel="stylesheet" href="{{ asset('icons/material-icons.css') }}">
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% endblock %}
+
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery.min.js') }}"></script>
+            <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/swiper.jquery.min.js') }}"></script>
+            <script src="{{ asset('js/Simple-Slider.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
