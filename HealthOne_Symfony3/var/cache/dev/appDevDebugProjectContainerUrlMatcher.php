@@ -107,21 +107,6 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // homepagelogin
-        if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'AppBundle\\Controller\\DefaultController::loginAction',  '_route' => 'homepagelogin',);
-            if ('/' === substr($pathinfo, -1)) {
-                // no-op
-            } elseif ('GET' !== $canonicalMethod) {
-                goto not_homepagelogin;
-            } else {
-                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'homepagelogin'));
-            }
-
-            return $ret;
-        }
-        not_homepagelogin:
-
         // homepage
         if ('' === $trimmedPathinfo) {
             $ret = array (  '_controller' => 'AppBundle\\Controller\\DefaultController::showAction',  '_route' => 'homepage',);
@@ -136,6 +121,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return $ret;
         }
         not_homepage:
+
+        // login
+        if ('/login' === $pathinfo) {
+            return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::loginAction',  '_route' => 'login',);
+        }
 
         // contactpage
         if ('/contact' === $pathinfo) {

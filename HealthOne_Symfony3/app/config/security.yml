@@ -8,7 +8,7 @@ security:
             memory:
                 users:
                     Admin:
-                        password: $2y$12$9dol4ko6s9AQPCoXw58.cuGYm3Akv7OPPcJbY96v9e6ADc6OyY5y2
+                        password: $2y$12$1oJhMAqeNNYjSBDir467ZOcGz.DcaMhiVYf3tyROB5J7WgTfd7AXu
                         roles: 'ROLE_ADMIN'
                     Verzekeringsmedewerker1:
                         password: $2y$12$Vp.fblvF7fj6sDtsBORWHOAP5Ue2kvyEK4QK4axEKAw0Ok3kxuVjS
@@ -35,8 +35,8 @@ security:
             anonymous: ~
             # activate different ways to authenticate
             form_login:
-                login_path: homepagelogin
-                check_path: homepagelogin
+                login_path: login
+                check_path: login
 
 
             logout_on_user_change: true

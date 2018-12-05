@@ -1,24 +1,58 @@
 <?php
 namespace AppBundle\Entity;
 
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="login")
+ * @ORM\Embedded
+ */
 class Login
 {
-    protected $gebruiker;
+    /**
+     *
+     * @var string
+     * @ORM\Column(name="username" , type="string" unique=true)
+     * @Assert\NotBlank(message="Vul uw gebruikersnaam in")
+     *
+     */protected $username;
 
-    public function __toString()
+    /**
+     * @return mixed
+     */
+    public function getUsername()
     {
-        return $this->gebruiker;
+        return $this->username;
     }
 
-    public function getGebruiker()
+    /**
+     * @param mixed $username
+     */
+    public function setUsername($username): void
     {
-        return $this->gebruiker;
+        $this->username = $username;
     }
 
-    public function setGebruiker($gebruiker)
+    /**
+     * @return mixed
+     */
+    public function getPassword()
     {
-        $this->gebruiker= $gebruiker;
+        return $this->password;
     }
 
-
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password): void
+    {
+        $this->password = $password;
+    }
+    /**
+     * @var string
+     * @ORM\Column(name="password" , "type="string")
+     */
+    protected $password;
 }

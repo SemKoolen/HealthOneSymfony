@@ -12,6 +12,7 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
+            'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
@@ -96,62 +97,52 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
                                             account_circle
                                         </i>
                                     </div>
-                                    ";
-        // line 27
+                                    <div class=\"inputfields\">
+                                        ";
+        // line 28
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["LoginForm"] ?? $this->getContext($context, "LoginForm")), 'form_start');
         echo "
-                                    ";
-        // line 28
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(($context["LoginForm"] ?? $this->getContext($context, "LoginForm")), 'widget');
-        echo "
-                                    ";
+                                        ";
         // line 29
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["LoginForm"] ?? $this->getContext($context, "LoginForm")), "username", array()), 'row', array("full_name" => "_username"));
+        echo "
+                                        ";
+        // line 30
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock($this->getAttribute(($context["LoginForm"] ?? $this->getContext($context, "LoginForm")), "password", array()), 'row', array("full_name" => "_password"));
+        echo "
+                                        ";
+        // line 31
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(($context["LoginForm"] ?? $this->getContext($context, "LoginForm")), 'widget', array("attr" => array("class" => "text-center inputfields", "novalidate" => "novalidate")));
+        echo "
+                                        ";
+        // line 32
+        if (($context["error"] ?? $this->getContext($context, "error"))) {
+            // line 33
+            echo "                                        <div><p class=\"ErrorMessage\"> ";
+            echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans($this->getAttribute(($context["error"] ?? $this->getContext($context, "error")), "messageKey", array()), $this->getAttribute(($context["error"] ?? $this->getContext($context, "error")), "messageData", array()), "security"), "html", null, true);
+            echo "</p></div>
+                                        ";
+        } else {
+            // line 35
+            echo "                                            <br>
+                                        ";
+        }
+        // line 37
+        echo "                                            <div class=\"formbuttons text-center\">
+                                                <button name=\"submit\" type=\"submit\" class=\"btn btn-success col-sm-5\">
+                                                    <span class=\"material-icons md-36\">done</span>
+                                                </button>
+                                                <button  type=\"button\" onclick=\"off()\" class=\"btn btn-danger col-sm-5\">
+                                                    <span class=\"material-icons md-36\">clear</span>
+                                                </button>
+                                            </div>
+                                        ";
+        // line 45
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock(($context["LoginForm"] ?? $this->getContext($context, "LoginForm")), 'form_end');
         echo "
-                                    <form action=\"";
-        // line 30
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("homepage");
-        echo "\" method=\"get\">
-                                        <div class=\"form-group\">
-                                            <label for=\"exampleSelect1\">Gebruiker</label>
-                                            <select name=\"choice\" class=\"form-control\" id=\"exampleSelect1\">
-                                                <option value=\"1\">Verzekeringsmedewerker</option>
-                                                <option value=\"2\">Arts</option>
-                                                <option value=\"3\">Apotheker</option>
-                                            </select>
-                                        </div>
-                                        <button name=\"submit\" type=\"submit\" class=\"btn btn-success btn-sm float-left\">
-                                            <span class=\"material-icons md-18\">done</span>
-                                        </button>
-                                        <button type=\"button\" onclick=\"off()\" class=\"btn btn-danger btn-sm float-right\">
-                                            <span class=\"material-icons md-18\">clear</span>
-                                        </button>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
-                            <?php
-                                function Redirect(\$url, \$permanent = false)
-                                {
-                                    if (headers_sent() === false)
-                                    {
-                                        header('Location: ' . \$url, true, (\$permanent === true) ? 301 : 302);
-                                    }
-
-                                    exit();
-                                }
-
-                                if(isset(\$_GET['submit'])) {
-                                    \$choice = \$_GET['choice'];
-                                    switch (\$choice) {
-                                        case 1: Redirect('";
-        // line 62
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("patients");
-        echo "', false); break;
-                                        case 2: Redirect('artsen.php', false); break;
-                                        case 3: Redirect('patients.php', false); break;
-                                    }
-                                }
-                            ?>
                             <script>
                                 function on() {
                                     document.getElementById(\"overlay\").style.display = \"block\";
@@ -172,15 +163,15 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
                     <div class=\"swiper-container\">
                         <div class=\"swiper-wrapper\">
                             <div class=\"swiper-slide\" style=\"background-image:url(";
-        // line 87
+        // line 68
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("img/apotheker.jpg"), "html", null, true);
         echo ");\"></div>
                             <div class=\"swiper-slide\" style=\"background-image:url(";
-        // line 88
+        // line 69
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("img/lab.jpg"), "html", null, true);
         echo ");\"></div>
                             <div class=\"swiper-slide\" style=\"background-image:url(";
-        // line 89
+        // line 70
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("img/eyevine3.14492330_boughtWEB.jpg"), "html", null, true);
         echo ");\"></div>
                         </div>
@@ -229,11 +220,34 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
             </div>
         </div>
     </div>
-    <script src=\"";
-        // line 136
+    ";
+        // line 117
+        $this->displayBlock('javascripts', $context, $blocks);
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    public function block_javascripts($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+
+        // line 118
+        echo "        <script src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/login.js"), "html", null, true);
         echo "\"></script>
-";
+        <script>";
+        // line 119
+        echo twig_escape_filter($this->env, ($context["script"] ?? $this->getContext($context, "script")), "html", null, true);
+        echo "</script>
+    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -254,7 +268,7 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
 
     public function getDebugInfo()
     {
-        return array (  234 => 136,  184 => 89,  180 => 88,  176 => 87,  148 => 62,  113 => 30,  109 => 29,  105 => 28,  101 => 27,  85 => 14,  81 => 13,  74 => 9,  68 => 5,  59 => 4,  41 => 3,  11 => 1,);
+        return array (  248 => 119,  243 => 118,  225 => 117,  175 => 70,  171 => 69,  167 => 68,  141 => 45,  131 => 37,  127 => 35,  121 => 33,  119 => 32,  115 => 31,  111 => 30,  107 => 29,  103 => 28,  86 => 14,  82 => 13,  75 => 9,  69 => 5,  60 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -293,47 +307,28 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
                                             account_circle
                                         </i>
                                     </div>
-                                    {{ form_start(LoginForm) }}
-                                    {{ form_widget(LoginForm) }}
-                                    {{ form_end(LoginForm) }}
-                                    <form action=\"{{ path('homepage') }}\" method=\"get\">
-                                        <div class=\"form-group\">
-                                            <label for=\"exampleSelect1\">Gebruiker</label>
-                                            <select name=\"choice\" class=\"form-control\" id=\"exampleSelect1\">
-                                                <option value=\"1\">Verzekeringsmedewerker</option>
-                                                <option value=\"2\">Arts</option>
-                                                <option value=\"3\">Apotheker</option>
-                                            </select>
-                                        </div>
-                                        <button name=\"submit\" type=\"submit\" class=\"btn btn-success btn-sm float-left\">
-                                            <span class=\"material-icons md-18\">done</span>
-                                        </button>
-                                        <button type=\"button\" onclick=\"off()\" class=\"btn btn-danger btn-sm float-right\">
-                                            <span class=\"material-icons md-18\">clear</span>
-                                        </button>
-                                    </form>
+                                    <div class=\"inputfields\">
+                                        {{ form_start(LoginForm) }}
+                                        {{ form_row(LoginForm.username, {'full_name':'_username' }) }}
+                                        {{ form_row(LoginForm.password, {'full_name':'_password'}) }}
+                                        {{ form_widget(LoginForm, {'attr': { 'class': 'text-center inputfields', 'novalidate': 'novalidate'}}) }}
+                                        {% if error %}
+                                        <div><p class=\"ErrorMessage\"> {{ error.messageKey|trans(error.messageData, 'security') }}</p></div>
+                                        {% else %}
+                                            <br>
+                                        {% endif %}
+                                            <div class=\"formbuttons text-center\">
+                                                <button name=\"submit\" type=\"submit\" class=\"btn btn-success col-sm-5\">
+                                                    <span class=\"material-icons md-36\">done</span>
+                                                </button>
+                                                <button  type=\"button\" onclick=\"off()\" class=\"btn btn-danger col-sm-5\">
+                                                    <span class=\"material-icons md-36\">clear</span>
+                                                </button>
+                                            </div>
+                                        {{ form_end(LoginForm) }}
+                                    </div>
                                 </div>
                             </div>
-                            <?php
-                                function Redirect(\$url, \$permanent = false)
-                                {
-                                    if (headers_sent() === false)
-                                    {
-                                        header('Location: ' . \$url, true, (\$permanent === true) ? 301 : 302);
-                                    }
-
-                                    exit();
-                                }
-
-                                if(isset(\$_GET['submit'])) {
-                                    \$choice = \$_GET['choice'];
-                                    switch (\$choice) {
-                                        case 1: Redirect('{{ path('patients') }}', false); break;
-                                        case 2: Redirect('artsen.php', false); break;
-                                        case 3: Redirect('patients.php', false); break;
-                                    }
-                                }
-                            ?>
                             <script>
                                 function on() {
                                     document.getElementById(\"overlay\").style.display = \"block\";
@@ -402,7 +397,11 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
             </div>
         </div>
     </div>
-    <script src=\"{{ asset('js/login.js') }}\"></script>
-{% endblock %}", "default/home.html.twig", "C:\\Users\\Sem\\Documents\\Health One\\HealthOne_Symfony3\\app\\Resources\\views\\default\\home.html.twig");
+    {% block javascripts %}
+        <script src=\"{{ asset('js/login.js') }}\"></script>
+        <script>{{ script }}</script>
+    {% endblock %}
+{% endblock %}
+", "default/home.html.twig", "C:\\Users\\Sem\\Documents\\GitHub\\HealthOneSymfony\\HealthOne_Symfony3\\app\\Resources\\views\\default\\home.html.twig");
     }
 }

@@ -99,19 +99,12 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
                     </div>
                     <div class=\"col-sm-6\">
                         <a href=\"#addEmployeeModal\" class=\"btn btn-success\" data-toggle=\"modal\"><i class=\"material-icons\">&#xE147;</i> <span>Klant toevoegen</span></a>
-                        <a href=\"#deleteEmployeeModal\" class=\"btn btn-danger\" data-toggle=\"modal\"><i class=\"material-icons\">&#xE15C;</i> <span>Verwijder</span></a>
                     </div>
                 </div>
             </div>
             <table class=\"table table-striped table-hover\">
                 <thead>
                 <tr>
-                    <th>
-\t\t\t\t\t\t\t<span class=\"custom-checkbox\">
-\t\t\t\t\t\t\t\t<input type=\"checkbox\" id=\"selectAll\">
-\t\t\t\t\t\t\t\t<label for=\"selectAll\"></label>
-\t\t\t\t\t\t\t</span>
-                    </th>
                     <th>ID</th>
                     <th>Klantnummer</th>
                     <th>Voornaam</th>
@@ -365,19 +358,12 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
                     </div>
                     <div class=\"col-sm-6\">
                         <a href=\"#addEmployeeModal\" class=\"btn btn-success\" data-toggle=\"modal\"><i class=\"material-icons\">&#xE147;</i> <span>Klant toevoegen</span></a>
-                        <a href=\"#deleteEmployeeModal\" class=\"btn btn-danger\" data-toggle=\"modal\"><i class=\"material-icons\">&#xE15C;</i> <span>Verwijder</span></a>
                     </div>
                 </div>
             </div>
             <table class=\"table table-striped table-hover\">
                 <thead>
                 <tr>
-                    <th>
-\t\t\t\t\t\t\t<span class=\"custom-checkbox\">
-\t\t\t\t\t\t\t\t<input type=\"checkbox\" id=\"selectAll\">
-\t\t\t\t\t\t\t\t<label for=\"selectAll\"></label>
-\t\t\t\t\t\t\t</span>
-                    </th>
                     <th>ID</th>
                     <th>Klantnummer</th>
                     <th>Voornaam</th>
@@ -562,6 +548,6 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
             </div>
         </div>
     </div>
-{% endblock %}", "admin/patients.html.twig", "C:\\Users\\Sem\\Documents\\Health One\\HealthOne_Symfony3\\app\\Resources\\views\\admin\\patients.html.twig");
+{% endblock %}", "admin/patients.html.twig", "C:\\Users\\Sem\\Documents\\GitHub\\HealthOneSymfony\\HealthOne_Symfony3\\app\\Resources\\views\\admin\\patients.html.twig");
     }
 }

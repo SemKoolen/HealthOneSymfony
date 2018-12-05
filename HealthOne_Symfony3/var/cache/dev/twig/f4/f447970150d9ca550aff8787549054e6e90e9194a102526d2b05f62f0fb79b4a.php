@@ -43,10 +43,12 @@ class __TwigTemplate_10afda2b1cdd5a9f65391b6ef3317f2cc9bebd36bb40262c3db2c5639ca
         ";
         // line 21
         $this->displayBlock('body', $context, $blocks);
-        // line 22
-        echo "        ";
+        // line 23
+        echo "
+        ";
+        // line 24
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 28
+        // line 30
         echo "    </body>
 </html>
 ";
@@ -147,6 +149,8 @@ class __TwigTemplate_10afda2b1cdd5a9f65391b6ef3317f2cc9bebd36bb40262c3db2c5639ca
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
+        // line 22
+        echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -155,7 +159,7 @@ class __TwigTemplate_10afda2b1cdd5a9f65391b6ef3317f2cc9bebd36bb40262c3db2c5639ca
 
     }
 
-    // line 22
+    // line 24
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
@@ -164,20 +168,20 @@ class __TwigTemplate_10afda2b1cdd5a9f65391b6ef3317f2cc9bebd36bb40262c3db2c5639ca
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 23
+        // line 25
         echo "            <script src=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/jquery.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 24
+        // line 26
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("bootstrap/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 25
+        // line 27
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/swiper.jquery.min.js"), "html", null, true);
         echo "\"></script>
             <script src=\"";
-        // line 26
+        // line 28
         echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/Simple-Slider.js"), "html", null, true);
         echo "\"></script>
         ";
@@ -196,7 +200,7 @@ class __TwigTemplate_10afda2b1cdd5a9f65391b6ef3317f2cc9bebd36bb40262c3db2c5639ca
 
     public function getDebugInfo()
     {
-        return array (  181 => 26,  177 => 25,  173 => 24,  168 => 23,  159 => 22,  142 => 21,  130 => 16,  126 => 15,  122 => 14,  118 => 13,  114 => 12,  110 => 11,  106 => 10,  102 => 9,  98 => 8,  94 => 7,  89 => 6,  80 => 5,  62 => 4,  50 => 28,  47 => 22,  45 => 21,  40 => 18,  38 => 5,  34 => 4,  29 => 1,);
+        return array (  185 => 28,  181 => 27,  177 => 26,  172 => 25,  163 => 24,  153 => 22,  144 => 21,  132 => 16,  128 => 15,  124 => 14,  120 => 13,  116 => 12,  112 => 11,  108 => 10,  104 => 9,  100 => 8,  96 => 7,  91 => 6,  82 => 5,  64 => 4,  52 => 30,  50 => 24,  47 => 23,  45 => 21,  40 => 18,  38 => 5,  34 => 4,  29 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -229,7 +233,9 @@ class __TwigTemplate_10afda2b1cdd5a9f65391b6ef3317f2cc9bebd36bb40262c3db2c5639ca
 
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
+
         {% block javascripts %}
             <script src=\"{{ asset('js/jquery.min.js') }}\"></script>
             <script src=\"{{ asset('bootstrap/js/bootstrap.min.js') }}\"></script>
@@ -238,6 +244,6 @@ class __TwigTemplate_10afda2b1cdd5a9f65391b6ef3317f2cc9bebd36bb40262c3db2c5639ca
         {% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\Users\\Sem\\Documents\\Health One\\HealthOne_Symfony3\\app\\Resources\\views\\base.html.twig");
+", "base.html.twig", "C:\\Users\\Sem\\Documents\\GitHub\\HealthOneSymfony\\HealthOne_Symfony3\\app\\Resources\\views\\base.html.twig");
     }
 }
