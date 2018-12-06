@@ -46,7 +46,7 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Home";
+        echo "Patients";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -87,8 +87,10 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
                         <a class=\"nav-link\" href=\"medicijnen.php\">Medicijnen</a>
                     </li>
                 </ul>
-                    <button class=\"btn btn-outline-danger my-2 my-sm-0\" type=\"submit\">Log Uit</button>
-                </form>
+                <a href=\"";
+        // line 24
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("logout");
+        echo "\" class=\"btn btn-outline-danger my-2 my-sm-0\">Log Uit</a>
             </div>
         </nav>
         <div class=\"table-wrapper\">
@@ -98,65 +100,113 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
                         <h2>Klanten<b> beheren</b></h2>
                     </div>
                     <div class=\"col-sm-6\">
-                        <a href=\"#addEmployeeModal\" class=\"btn btn-success\" data-toggle=\"modal\"><i class=\"material-icons\">&#xE147;</i> <span>Klant toevoegen</span></a>
+                        <a href=\"#addEmployeeModal\" class=\"btn btn-success float-right\" data-toggle=\"modal\"><i class=\"material-icons\">&#xE147;</i> <span>Klant toevoegen</span></a>
                     </div>
                 </div>
             </div>
             <table class=\"table table-striped table-hover\">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th></th>
                     <th>Klantnummer</th>
-                    <th>Voornaam</th>
-                    <th>Tussenvoegsel</th>
-                    <th>Achternaam</th>
+                    <th>Naam</th>
                     <th>Adres</th>
-                    <th>Postcode</th>
                     <th>Plaats</th>
                     <th>Telefoon</th>
                     <th>Email</th>
+                    <th>Acties</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                        include(\"dbConnect.php\");
-                        \$query = \$db->prepare(\"SELECT * FROM klanten\");
-                \$query->execute();
-                \$counter = 0;
-                \$result = \$query->fetchAll (PDO::FETCH_ASSOC);
-                foreach(\$result as &\$data) {
-                \$counter++;
-                \$checkbox = \$data[\"id\"];
-                echo \"<tr>\";
-                    echo \"<td>
-                                    <span class=\\\"custom-checkbox\\\">
-                                        <input type=\\\"checkbox\\\" id=\\\"\$checkbox\\\" name=\\\"options[]\\\" value=\\\"1\\\">
-                                        <label for=\\\"\$checkbox\\\"></label>
-                                    </span>
-                    </td>\";
-                    echo \"<td>\" . \$data[\"id\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"klantnummer\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"voornaam\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"tussenvoegsel\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"achternaam\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"straatnaam\"] . \" \" . \$data[\"huisnummer\"]. \"</td>\";
-                    echo \"<td>\" . \$data[\"postcode\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"plaats\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"telefoon_nummer\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"email\"] . \"</td>\";
-                    echo \"<td>
-                        <a href=\\\"#editEmployeeModal\\\" class=\\\"edit\\\" data-toggle=\\\"modal\\\"><i class=\\\"material-icons\\\" data-toggle=\\\"tooltip\\\" title=\\\"Edit\\\">&#xE254;</i></a>
-                        <a href=\\\"#deleteEmployeeModal\\\" class=\\\"delete\\\" data-toggle=\\\"modal\\\"><i class=\\\"material-icons\\\" data-toggle=\\\"tooltip\\\" title=\\\"Delete\\\">&#xE872;</i></a>
-                    </td>\";
-                    echo \"</tr>\";
-                }
-                ?>
-                </tbody>
+                ";
+        // line 52
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable(($context["patients"] ?? $this->getContext($context, "patients")));
+        foreach ($context['_seq'] as $context["_key"] => $context["patient"]) {
+            // line 53
+            echo "                    <tr id=\"";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "id", array()), "html", null, true);
+            echo "\">
+                        <td>
+                            <span class=\\\"custom-checkbox\\\">
+                                <input type=\"checkbox\" id=\"";
+            // line 56
+            echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "id", array()), "html", null, true);
+            echo "\" name=\"options[]\" value=\"1\">
+                                <label for=\"";
+            // line 57
+            echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "id", array()), "html", null, true);
+            echo "\"></label>
+                            </span>
+                        </td>
+                        <td>";
+            // line 60
+            echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "klantnummer", array()), "html", null, true);
+            echo "</td>
+                        <td>
+                            ";
+            // line 62
+            echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "voornaam", array()), "html", null, true);
+            echo "
+                            ";
+            // line 63
+            if ($this->getAttribute($context["patient"], "tussenvoegsel", array())) {
+                // line 64
+                echo "                                ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "tussenvoegsel", array()), "html", null, true);
+                echo " ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "achternaam", array()), "html", null, true);
+                echo "
+                            ";
+            } else {
+                // line 66
+                echo "                                ";
+                echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "achternaam", array()), "html", null, true);
+                echo "
+                            ";
+            }
+            // line 68
+            echo "                        </td>
+                        <td>";
+            // line 69
+            echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "straatnaam", array()), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "huisnummer", array()), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 70
+            echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "plaats", array()), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 71
+            echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "telefoonnummer", array()), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 72
+            echo twig_escape_filter($this->env, $this->getAttribute($context["patient"], "email", array()), "html", null, true);
+            echo "</td>
+                        <td>
+                            <a href=\"#editEmployeeModal\" class=\"edit\" data-toggle=\"modal\"><i class=\"material-icons\" data-toggle=\"tooltip\" title=\"Edit\">&#xE254;</i></a>
+                            <a href=\"#deleteEmployeeModal\" class=\"delete\" data-toggle=\"modal\"><i class=\"material-icons\" data-toggle=\"tooltip\" title=\"Delete\">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['patient'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 79
+        echo "                </tbody>
             </table>
             <div class=\"clearfix\">
-                <?php echo \"<div class=\\\"hint-text\\\">Showing <b>\$counter</b> out of <b>\$counter</b> entries</div>\"?>
+                <div class=\"hint-text\">Showing <b>";
+        // line 82
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, ($context["patients"] ?? $this->getContext($context, "patients"))), "html", null, true);
+        echo "</b> out of <b>";
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, ($context["patients"] ?? $this->getContext($context, "patients"))), "html", null, true);
+        echo "</b> entries</div>
+            </div>
         </div>
-    </div>
     </div>
     <!-- Edit Modal HTML -->
     <div id=\"addEmployeeModal\" class=\"modal fade\">
@@ -289,6 +339,10 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
             </div>
         </div>
     </div>
+    <script src=\"";
+        // line 217
+        echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\AssetExtension')->getAssetUrl("js/checkboxes.js"), "html", null, true);
+        echo "\"></script>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -310,7 +364,7 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
 
     public function getDebugInfo()
     {
-        return array (  72 => 7,  68 => 5,  59 => 4,  41 => 3,  11 => 1,);
+        return array (  344 => 217,  204 => 82,  199 => 79,  186 => 72,  182 => 71,  178 => 70,  172 => 69,  169 => 68,  163 => 66,  155 => 64,  153 => 63,  149 => 62,  144 => 60,  138 => 57,  134 => 56,  127 => 53,  123 => 52,  92 => 24,  72 => 7,  68 => 5,  59 => 4,  41 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -325,7 +379,7 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
     {
         return new Twig_Source("{% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Patients{% endblock %}
 {% block body %}
     <div class=\"container\">
         <nav class=\"navbar navbar-expand-sm navbar-light bg-light\">
@@ -346,8 +400,7 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
                         <a class=\"nav-link\" href=\"medicijnen.php\">Medicijnen</a>
                     </li>
                 </ul>
-                    <button class=\"btn btn-outline-danger my-2 my-sm-0\" type=\"submit\">Log Uit</button>
-                </form>
+                <a href=\"{{ path('logout') }}\" class=\"btn btn-outline-danger my-2 my-sm-0\">Log Uit</a>
             </div>
         </nav>
         <div class=\"table-wrapper\">
@@ -357,65 +410,57 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
                         <h2>Klanten<b> beheren</b></h2>
                     </div>
                     <div class=\"col-sm-6\">
-                        <a href=\"#addEmployeeModal\" class=\"btn btn-success\" data-toggle=\"modal\"><i class=\"material-icons\">&#xE147;</i> <span>Klant toevoegen</span></a>
+                        <a href=\"#addEmployeeModal\" class=\"btn btn-success float-right\" data-toggle=\"modal\"><i class=\"material-icons\">&#xE147;</i> <span>Klant toevoegen</span></a>
                     </div>
                 </div>
             </div>
             <table class=\"table table-striped table-hover\">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th></th>
                     <th>Klantnummer</th>
-                    <th>Voornaam</th>
-                    <th>Tussenvoegsel</th>
-                    <th>Achternaam</th>
+                    <th>Naam</th>
                     <th>Adres</th>
-                    <th>Postcode</th>
                     <th>Plaats</th>
                     <th>Telefoon</th>
                     <th>Email</th>
+                    <th>Acties</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                        include(\"dbConnect.php\");
-                        \$query = \$db->prepare(\"SELECT * FROM klanten\");
-                \$query->execute();
-                \$counter = 0;
-                \$result = \$query->fetchAll (PDO::FETCH_ASSOC);
-                foreach(\$result as &\$data) {
-                \$counter++;
-                \$checkbox = \$data[\"id\"];
-                echo \"<tr>\";
-                    echo \"<td>
-                                    <span class=\\\"custom-checkbox\\\">
-                                        <input type=\\\"checkbox\\\" id=\\\"\$checkbox\\\" name=\\\"options[]\\\" value=\\\"1\\\">
-                                        <label for=\\\"\$checkbox\\\"></label>
-                                    </span>
-                    </td>\";
-                    echo \"<td>\" . \$data[\"id\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"klantnummer\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"voornaam\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"tussenvoegsel\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"achternaam\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"straatnaam\"] . \" \" . \$data[\"huisnummer\"]. \"</td>\";
-                    echo \"<td>\" . \$data[\"postcode\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"plaats\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"telefoon_nummer\"] . \"</td>\";
-                    echo \"<td>\" . \$data[\"email\"] . \"</td>\";
-                    echo \"<td>
-                        <a href=\\\"#editEmployeeModal\\\" class=\\\"edit\\\" data-toggle=\\\"modal\\\"><i class=\\\"material-icons\\\" data-toggle=\\\"tooltip\\\" title=\\\"Edit\\\">&#xE254;</i></a>
-                        <a href=\\\"#deleteEmployeeModal\\\" class=\\\"delete\\\" data-toggle=\\\"modal\\\"><i class=\\\"material-icons\\\" data-toggle=\\\"tooltip\\\" title=\\\"Delete\\\">&#xE872;</i></a>
-                    </td>\";
-                    echo \"</tr>\";
-                }
-                ?>
+                {%  for patient in patients %}
+                    <tr id=\"{{ patient.id }}\">
+                        <td>
+                            <span class=\\\"custom-checkbox\\\">
+                                <input type=\"checkbox\" id=\"{{ patient.id }}\" name=\"options[]\" value=\"1\">
+                                <label for=\"{{ patient.id }}\"></label>
+                            </span>
+                        </td>
+                        <td>{{ patient.klantnummer }}</td>
+                        <td>
+                            {{ patient.voornaam }}
+                            {% if patient.tussenvoegsel %}
+                                {{ patient.tussenvoegsel }} {{ patient.achternaam }}
+                            {% else %}
+                                {{ patient.achternaam }}
+                            {% endif %}
+                        </td>
+                        <td>{{ patient.straatnaam }} {{ patient.huisnummer }}</td>
+                        <td>{{ patient.plaats }}</td>
+                        <td>{{ patient.telefoonnummer }}</td>
+                        <td>{{ patient.email }}</td>
+                        <td>
+                            <a href=\"#editEmployeeModal\" class=\"edit\" data-toggle=\"modal\"><i class=\"material-icons\" data-toggle=\"tooltip\" title=\"Edit\">&#xE254;</i></a>
+                            <a href=\"#deleteEmployeeModal\" class=\"delete\" data-toggle=\"modal\"><i class=\"material-icons\" data-toggle=\"tooltip\" title=\"Delete\">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
             <div class=\"clearfix\">
-                <?php echo \"<div class=\\\"hint-text\\\">Showing <b>\$counter</b> out of <b>\$counter</b> entries</div>\"?>
+                <div class=\"hint-text\">Showing <b>{{ patients|length }}</b> out of <b>{{ patients|length }}</b> entries</div>
+            </div>
         </div>
-    </div>
     </div>
     <!-- Edit Modal HTML -->
     <div id=\"addEmployeeModal\" class=\"modal fade\">
@@ -548,6 +593,7 @@ class __TwigTemplate_7bf4b8e288af0476e1859793023bcb8212f10ba1f5322ac91967d961f5f
             </div>
         </div>
     </div>
+    <script src=\"{{ asset('js/checkboxes.js') }}\"></script>
 {% endblock %}", "admin/patients.html.twig", "C:\\Users\\Sem\\Documents\\GitHub\\HealthOneSymfony\\HealthOne_Symfony3\\app\\Resources\\views\\admin\\patients.html.twig");
     }
 }

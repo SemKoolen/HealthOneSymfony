@@ -20,25 +20,18 @@ class DefaultController extends Controller
      */
 
     public function showAction(Request $request, AuthenticationUtils $authenticationUtils) {
-        $session = new Session();
-//        $session->start();
-        $session->set('page', 'homepage');
         $form = $this->createForm(LoginType::class);
-
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
-            $gebruiker = $form->getData('gebruiker');
-            switch ($gebruiker){
-                case 'Verzekeringsmedewerker': return $this->redirectToRoute('patients'); break;
-                case 'Arts': return $this->redirectToRoute('patients'); break;
-                case 'Apotheker': return $this->redirectToRoute('patients'); break;
-            }
-        }
+        $error = $authenticationUtils->getLastAuthenticationError();
+        $lastUsername = $authenticationUtils->getLastUsername();
         $script = 'off()';
-        return $this->render('default/home.html.twig',
+        return $this->render( 'default/home.html.twig',
             ['LoginForm' => $form->createView(),
-                'script' => $script ]);
+                'script' => $script,
+                'last_username' => $lastUsername,
+                'error'         => $error,
+            ]);
     }
 
     /**
@@ -48,15 +41,6 @@ class DefaultController extends Controller
     public function loginAction(Request $request, AuthenticationUtils $authenticationUtils) {
         $form = $this->createForm(LoginType::class);
         $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()) {
-            $username = $form->getData('username');
-            switch ($gebruiker){
-                case 'Verzekeringsmedewerker': return $this->redirectToRoute('patients'); break;
-                case 'Arts': return $this->redirectToRoute('patients'); break;
-                case 'Apotheker': return $this->redirectToRoute('patients'); break;
-            }
-        }
         $error = $authenticationUtils->getLastAuthenticationError();
         $lastUsername = $authenticationUtils->getLastUsername();
 

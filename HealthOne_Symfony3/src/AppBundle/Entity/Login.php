@@ -3,21 +3,42 @@ namespace AppBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="login")
- * @ORM\Embedded
  */
 class Login
 {
     /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
+    protected $id;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+    /**
      *
      * @var string
-     * @ORM\Column(name="username" , type="string" unique=true)
-     * @Assert\NotBlank(message="Vul uw gebruikersnaam in")
-     *
-     */protected $username;
+     * @ORM\Column(name="username" , type="string")
+     */
+    protected $username;
 
     /**
      * @return mixed
@@ -52,7 +73,7 @@ class Login
     }
     /**
      * @var string
-     * @ORM\Column(name="password" , "type="string")
+     * @ORM\Column(name="password" , type="string")
      */
     protected $password;
 }

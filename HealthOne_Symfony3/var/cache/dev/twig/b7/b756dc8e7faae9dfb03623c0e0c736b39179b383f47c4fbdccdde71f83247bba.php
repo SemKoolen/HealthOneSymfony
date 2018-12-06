@@ -87,7 +87,10 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
         echo "\">contact </a></li>
                             </ul>
                             <p class=\"ml-auto navbar-text actions\">
-                                <a href=\"#\" onclick=\"on()\" class=\"login\">Log In</a>
+                                <a href=\"";
+        // line 17
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("login");
+        echo "\" class=\"login\">Log In</a>
                                 <a class=\"btn btn-light action-button\" role=\"button\" href=\"signup.html\">Sign Up</a>
                             </p>
                             <div id=\"overlay\">
@@ -132,9 +135,12 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
                                                 <button name=\"submit\" type=\"submit\" class=\"btn btn-success col-sm-5\">
                                                     <span class=\"material-icons md-36\">done</span>
                                                 </button>
-                                                <button  type=\"button\" onclick=\"off()\" class=\"btn btn-danger col-sm-5\">
+                                                <a  type=\"button\" href=\"";
+        // line 41
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("homepage");
+        echo "\" class=\"btn btn-danger col-sm-5 border-1\">
                                                     <span class=\"material-icons md-36\">clear</span>
-                                                </button>
+                                                </a>
                                             </div>
                                         ";
         // line 45
@@ -268,7 +274,7 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
 
     public function getDebugInfo()
     {
-        return array (  248 => 119,  243 => 118,  225 => 117,  175 => 70,  171 => 69,  167 => 68,  141 => 45,  131 => 37,  127 => 35,  121 => 33,  119 => 32,  115 => 31,  111 => 30,  107 => 29,  103 => 28,  86 => 14,  82 => 13,  75 => 9,  69 => 5,  60 => 4,  42 => 3,  11 => 1,);
+        return array (  254 => 119,  249 => 118,  231 => 117,  181 => 70,  177 => 69,  173 => 68,  147 => 45,  140 => 41,  134 => 37,  130 => 35,  124 => 33,  122 => 32,  118 => 31,  114 => 30,  110 => 29,  106 => 28,  92 => 17,  86 => 14,  82 => 13,  75 => 9,  69 => 5,  60 => 4,  42 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -297,7 +303,7 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
                                 <li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link\" href=\"{{ path('contactpage') }}\">contact </a></li>
                             </ul>
                             <p class=\"ml-auto navbar-text actions\">
-                                <a href=\"#\" onclick=\"on()\" class=\"login\">Log In</a>
+                                <a href=\"{{ path('login') }}\" class=\"login\">Log In</a>
                                 <a class=\"btn btn-light action-button\" role=\"button\" href=\"signup.html\">Sign Up</a>
                             </p>
                             <div id=\"overlay\">
@@ -321,9 +327,9 @@ class __TwigTemplate_46451b6a97a93eb2e950ca975a829ca4016c2c47b851ee7f66580622e2a
                                                 <button name=\"submit\" type=\"submit\" class=\"btn btn-success col-sm-5\">
                                                     <span class=\"material-icons md-36\">done</span>
                                                 </button>
-                                                <button  type=\"button\" onclick=\"off()\" class=\"btn btn-danger col-sm-5\">
+                                                <a  type=\"button\" href=\"{{ path('homepage') }}\" class=\"btn btn-danger col-sm-5 border-1\">
                                                     <span class=\"material-icons md-36\">clear</span>
-                                                </button>
+                                                </a>
                                             </div>
                                         {{ form_end(LoginForm) }}
                                     </div>

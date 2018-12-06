@@ -14,7 +14,7 @@
                                 <li class="nav-item" role="presentation"><a class="nav-link" href="{{ path('contactpage') }}">contact </a></li>
                             </ul>
                             <p class="ml-auto navbar-text actions">
-                                <a href="#" onclick="on()" class="login">Log In</a>
+                                <a href="{{ path('login') }}" class="login">Log In</a>
                                 <a class="btn btn-light action-button" role="button" href="signup.html">Sign Up</a>
                             </p>
                             <div id="overlay">
@@ -38,9 +38,9 @@
                                                 <button name="submit" type="submit" class="btn btn-success col-sm-5">
                                                     <span class="material-icons md-36">done</span>
                                                 </button>
-                                                <button  type="button" onclick="off()" class="btn btn-danger col-sm-5">
+                                                <a  type="button" href="{{ path('homepage') }}" class="btn btn-danger col-sm-5 border-1">
                                                     <span class="material-icons md-36">clear</span>
-                                                </button>
+                                                </a>
                                             </div>
                                         {{ form_end(LoginForm) }}
                                     </div>

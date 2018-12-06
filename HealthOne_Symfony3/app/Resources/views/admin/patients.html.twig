@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Patients{% endblock %}
 {% block body %}
     <div class="container">
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
@@ -21,8 +21,7 @@
                         <a class="nav-link" href="medicijnen.php">Medicijnen</a>
                     </li>
                 </ul>
-                    <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Log Uit</button>
-                </form>
+                <a href="{{ path('logout') }}" class="btn btn-outline-danger my-2 my-sm-0">Log Uit</a>
             </div>
         </nav>
         <div class="table-wrapper">
@@ -32,65 +31,57 @@
                         <h2>Klanten<b> beheren</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Klant toevoegen</span></a>
+                        <a href="#addEmployeeModal" class="btn btn-success float-right" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Klant toevoegen</span></a>
                     </div>
                 </div>
             </div>
             <table class="table table-striped table-hover">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th></th>
                     <th>Klantnummer</th>
-                    <th>Voornaam</th>
-                    <th>Tussenvoegsel</th>
-                    <th>Achternaam</th>
+                    <th>Naam</th>
                     <th>Adres</th>
-                    <th>Postcode</th>
                     <th>Plaats</th>
                     <th>Telefoon</th>
                     <th>Email</th>
+                    <th>Acties</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                        include("dbConnect.php");
-                        $query = $db->prepare("SELECT * FROM klanten");
-                $query->execute();
-                $counter = 0;
-                $result = $query->fetchAll (PDO::FETCH_ASSOC);
-                foreach($result as &$data) {
-                $counter++;
-                $checkbox = $data["id"];
-                echo "<tr>";
-                    echo "<td>
-                                    <span class=\"custom-checkbox\">
-                                        <input type=\"checkbox\" id=\"$checkbox\" name=\"options[]\" value=\"1\">
-                                        <label for=\"$checkbox\"></label>
-                                    </span>
-                    </td>";
-                    echo "<td>" . $data["id"] . "</td>";
-                    echo "<td>" . $data["klantnummer"] . "</td>";
-                    echo "<td>" . $data["voornaam"] . "</td>";
-                    echo "<td>" . $data["tussenvoegsel"] . "</td>";
-                    echo "<td>" . $data["achternaam"] . "</td>";
-                    echo "<td>" . $data["straatnaam"] . " " . $data["huisnummer"]. "</td>";
-                    echo "<td>" . $data["postcode"] . "</td>";
-                    echo "<td>" . $data["plaats"] . "</td>";
-                    echo "<td>" . $data["telefoon_nummer"] . "</td>";
-                    echo "<td>" . $data["email"] . "</td>";
-                    echo "<td>
-                        <a href=\"#editEmployeeModal\" class=\"edit\" data-toggle=\"modal\"><i class=\"material-icons\" data-toggle=\"tooltip\" title=\"Edit\">&#xE254;</i></a>
-                        <a href=\"#deleteEmployeeModal\" class=\"delete\" data-toggle=\"modal\"><i class=\"material-icons\" data-toggle=\"tooltip\" title=\"Delete\">&#xE872;</i></a>
-                    </td>";
-                    echo "</tr>";
-                }
-                ?>
+                {%  for patient in patients %}
+                    <tr id="{{ patient.id }}">
+                        <td>
+                            <span class=\"custom-checkbox\">
+                                <input type="checkbox" id="{{ patient.id }}" name="options[]" value="1">
+                                <label for="{{ patient.id }}"></label>
+                            </span>
+                        </td>
+                        <td>{{ patient.klantnummer }}</td>
+                        <td>
+                            {{ patient.voornaam }}
+                            {% if patient.tussenvoegsel %}
+                                {{ patient.tussenvoegsel }} {{ patient.achternaam }}
+                            {% else %}
+                                {{ patient.achternaam }}
+                            {% endif %}
+                        </td>
+                        <td>{{ patient.straatnaam }} {{ patient.huisnummer }}</td>
+                        <td>{{ patient.plaats }}</td>
+                        <td>{{ patient.telefoonnummer }}</td>
+                        <td>{{ patient.email }}</td>
+                        <td>
+                            <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
             <div class="clearfix">
-                <?php echo "<div class=\"hint-text\">Showing <b>$counter</b> out of <b>$counter</b> entries</div>"?>
+                <div class="hint-text">Showing <b>{{ patients|length }}</b> out of <b>{{ patients|length }}</b> entries</div>
+            </div>
         </div>
-    </div>
     </div>
     <!-- Edit Modal HTML -->
     <div id="addEmployeeModal" class="modal fade">
@@ -223,4 +214,5 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/checkboxes.js') }}"></script>
 {% endblock %}
